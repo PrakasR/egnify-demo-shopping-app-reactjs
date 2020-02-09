@@ -2,18 +2,25 @@ import React, { useState, useRef } from "react";
 import styled from "styled-components";
 
 const CartItemsContainer = ({ cartElements }) => {
-  const [itemQuantity, setItemQuantity] = useState(0);
-  const [itemsMap, setItemsMap] = useState({});
-  const counter = useRef(0);
+  // const [itemQuantity, setItemQuantity] = useState(0);
+  // const [itemsMap, setItemsMap] = useState({});
+  // const [totalAmount, setTotalAmount] = useState(0);
+  let totalAmount = 0;
+  console.log(cartElements);
+  cartElements.map(element => {
+    // setTotalAmount(totalAmount + element.price);
+    totalAmount += element.price;
+  });
 
   // const [itemIDs, setItemIds] = useState([]);
   return (
     <Wrapper>
       <CartItems>
+        {/* { uniqueCartElements=} */}
         {cartElements.map(element => {
           const id = element.id;
           // setItemsMap({ ...itemsMap, id: ++counter.current });
-          console.log(itemsMap);
+          // console.log(itemsMap);
           // !itemIDs.includes(element.id) && setItemIds([...itemIDs, element.id]);
           return (
             <CartItem>
@@ -43,6 +50,14 @@ const CartItemsContainer = ({ cartElements }) => {
         })}
       </CartItems>
       <CartAction>
+        <TotalAmount>
+          <span style={{ color: "#585858" }}>SUBTOTAL</span>
+          <span
+            style={{ color: "#e6b800", fontSize: "1.5em", marginLeft: "25%" }}
+          >
+            $ {totalAmount}
+          </span>
+        </TotalAmount>
         <Button>CHECKOUT</Button>
       </CartAction>
     </Wrapper>
@@ -81,6 +96,9 @@ const CartAction = styled.div`
   width: 100%;
   box-shadow: 0px -10px 20px;
 `;
+const TotalAmount = styled.div`
+  padding: 5%;
+`;
 
 const Button = styled.button`
   width: 22vw;
@@ -88,7 +106,6 @@ const Button = styled.button`
   border-radius: 5%;
   background-color: #101010;
   color: white;
-  margin-top: 18%;
   margin-left: 3%;
   border: none;
   /* && {
