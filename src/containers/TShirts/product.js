@@ -10,7 +10,6 @@ const Product = ({ product, addCartItem }) => {
   const floatingPrice = ("" + product.price).split(".")[1]
     ? ("" + product.price).split(".")[1]
     : "00";
-  // const prodImg = require(`../../products/${imgUrl}`);
   return (
     <>
       <ProductWrapper>

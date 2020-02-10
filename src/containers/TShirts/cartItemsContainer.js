@@ -1,27 +1,16 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const CartItemsContainer = ({ cartElements }) => {
-  // const [itemQuantity, setItemQuantity] = useState(0);
-  // const [itemsMap, setItemsMap] = useState({});
-  // const [totalAmount, setTotalAmount] = useState(0);
   let totalAmount = 0;
-  console.log(cartElements);
   cartElements.map(element => {
-    // setTotalAmount(totalAmount + element.price);
     totalAmount += element.price;
   });
 
-  // const [itemIDs, setItemIds] = useState([]);
   return (
     <Wrapper>
       <CartItems>
-        {/* { uniqueCartElements=} */}
         {cartElements.map(element => {
-          const id = element.id;
-          // setItemsMap({ ...itemsMap, id: ++counter.current });
-          // console.log(itemsMap);
-          // !itemIDs.includes(element.id) && setItemIds([...itemIDs, element.id]);
           return (
             <CartItem>
               <img
@@ -30,7 +19,6 @@ const CartItemsContainer = ({ cartElements }) => {
                 width="70"
                 height="80"
               />
-              {/* <ItemInfo> */}
               <p
                 style={{
                   color: "white",
@@ -43,8 +31,6 @@ const CartItemsContainer = ({ cartElements }) => {
                 {element.availableSizes[0]}|{element.availableSizes[1]}
               </p>
               <p>Quantity:</p>
-              {/* </ItemInfo> */}
-              {/* <p style={{ display: "inline-block" }}>sdf</p> */}
             </CartItem>
           );
         })}
@@ -71,7 +57,6 @@ const Wrapper = styled.div`
   z-index: 1;
   position: relative;
   overflow: hidden;
-  /* overflow-y: scroll; */
 `;
 
 const CartItems = styled.div`
@@ -79,19 +64,13 @@ const CartItems = styled.div`
   overflow-y: scroll;
 `;
 const CartItem = styled.div`
-  /* height: */
-  /* display: inline-block; */
   padding: 3%;
   border-bottom: 2px solid #101010;
-`;
-const ItemInfo = styled.div`
-  display: inline-block;
 `;
 
 const CartAction = styled.div`
   height: 40%;
   background-color: #383838;
-  /* margin-top: 10%; */
   position: static;
   width: 100%;
   box-shadow: 0px -10px 20px;
@@ -108,11 +87,6 @@ const Button = styled.button`
   color: white;
   margin-left: 3%;
   border: none;
-  /* && {
-    :hover {
-      background: #e6b800;
-    }
-  } */
 `;
 
 export default CartItemsContainer;

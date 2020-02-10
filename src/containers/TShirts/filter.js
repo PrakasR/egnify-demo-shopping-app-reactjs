@@ -8,7 +8,6 @@ const Filter = ({ filterStrings, setFilterStrings }) => {
       filterStrings[appliedFilter] = false;
       setFilterStrings({ ...filterStrings });
     } else {
-      //   filterStrings[appliedFilter] = true;
       filterStrings[appliedFilter] = true;
       setFilterStrings({ ...filterStrings });
     }
@@ -16,7 +15,7 @@ const Filter = ({ filterStrings, setFilterStrings }) => {
 
   return (
     <Wrapper>
-      <h3>Sizes:</h3>
+      <h3 style={{ marginLeft: "3%" }}>Sizes:</h3>
       <FilterWrapper>
         <CheckBox>
           <input
@@ -100,14 +99,12 @@ const CheckBox = styled.div`
   border-radius: 50%;
   margin: 2%;
   text-align: center;
-  /* line-height: 30px; */
   && > input:checked {
     background-color: #e6b800;
   }
 `;
 const Wrapper = styled.div`
   width: 100%;
-  /* height: 10%; */
 `;
 const FilterWrapper = styled.div`
   display: flex;

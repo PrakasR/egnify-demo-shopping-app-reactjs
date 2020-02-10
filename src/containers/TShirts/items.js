@@ -24,16 +24,14 @@ const TShirts = ({ filterStrings, addCartItem }) => {
       });
       setProductsData(filteredProducts);
       isFilterApplied.current = false;
-      console.log(filteredProducts);
     } else {
       setProductsData(productsdata);
     }
-    // isInitialMount.current = false;
   }, [filterStrings]);
 
   return (
     <Wrapper>
-      <p>{productsData.length} product(s) found</p>
+      <p style={{ marginLeft: "5%" }}>{productsData.length} product(s) found</p>
       <ItemsWrapper>
         {productsData.map(product => {
           return (
@@ -48,8 +46,6 @@ const TShirts = ({ filterStrings, addCartItem }) => {
 };
 
 const ItemsWrapper = styled.div`
-  /* margin-left: 10%;
-  margin-top: 10%; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -58,9 +54,6 @@ const ItemsWrapper = styled.div`
     margin: 3%;
   }
 `;
-const Wrapper = styled.div`
-  /* margin-left: 10%; */
-  /* margin-top: 10%; */
-`;
+const Wrapper = styled.div``;
 
 export default TShirts;
