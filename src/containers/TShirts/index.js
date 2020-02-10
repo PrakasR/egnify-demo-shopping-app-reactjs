@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import TShirts from "./items";
 import Filter from "./filter";
 import CartItems from "./cart";
@@ -21,6 +20,12 @@ const ShoppingItems = () => {
   const addCartItem = product => {
     setCartElements([...cartElements, product]);
   };
+  const deleteCartItem = productId => {
+    const existingCartElements = cartElements.filter(element => {
+      return element.id !== productId;
+    });
+    setCartElements(existingCartElements);
+  };
 
   return (
     <Grid>
@@ -34,7 +39,10 @@ const ShoppingItems = () => {
         <TShirts filterStrings={filterStrings} addCartItem={addCartItem} />
       </GridCell>
       <GridCell span="3">
-        <CartItems cartElements={cartElements} />
+        <CartItems
+          cartElements={cartElements}
+          deleteCartItem={deleteCartItem}
+        />
       </GridCell>
     </Grid>
   );

@@ -22,7 +22,7 @@ const Product = ({ product, addCartItem }) => {
         <ProductTitle>{product.title}</ProductTitle>
         <Seperator></Seperator>
         <Price>
-          $
+          {product.currencyFormat}
           <span
             style={{ fontWeight: "bold", fontSize: "1.5em", marginLeft: "1%" }}
           >

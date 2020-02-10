@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import CartItemsContainer from "./cartItemsContainer";
 
-const CartItems = ({ cartElements }) => {
+const CartItems = ({ cartElements, deleteCartItem }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const toggleCart = () => {
@@ -22,7 +22,12 @@ const CartItems = ({ cartElements }) => {
         style={{ marginLeft: "75%" }}
       />
       <ItemsCount>{cartElements.length}</ItemsCount>
-      {isCartOpen && <CartItemsContainer cartElements={cartElements} />}
+      {isCartOpen && (
+        <CartItemsContainer
+          cartElements={cartElements}
+          deleteCartItem={deleteCartItem}
+        />
+      )}
     </Wrapper>
   );
 };
