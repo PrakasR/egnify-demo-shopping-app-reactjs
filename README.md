@@ -1,1 +1,1 @@
-# egnify-demo-shopping-app-reactjs-
+demo-shopping-app-reactjs
